@@ -15,3 +15,5 @@ App build.gradle文件中添加依赖
    # implementation 'com.facebook.fresco:imagepipeline:1.11.0'
    # implementation "com.facebook.fresco:imagepipeline-okhttp3:1.3.0"
    # implementation 'javax.inject:javax.inject:1'
+
+# RN官网https://reactnative.cn/docs/integration-with-existing-apps/
