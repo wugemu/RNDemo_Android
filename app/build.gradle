@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.nyso.sudiantwo"
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+    signingConfigs {
+        release {
+            storeFile file("mihui.key")
+            storePassword "Fuyou_2015"
+            keyAlias "蜜惠"
+            keyPassword "Fuyou_2015"
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
+    implementation project(':andlang')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //butterkinfe
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    //RN
+    implementation 'com.facebook.infer.annotation:infer-annotation:0.11.2'
+    implementation 'com.facebook.soloader:soloader:0.6.0'
+    implementation 'com.facebook.fresco:fresco:1.11.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
+    implementation 'com.facebook.fresco:drawee:1.11.0'
+    implementation 'com.facebook.fresco:fbcore:1.11.0'
+    implementation 'com.facebook.fresco:imagepipeline:1.11.0'
+    implementation "com.facebook.fresco:imagepipeline-okhttp3:1.3.0"
+    implementation 'javax.inject:javax.inject:1'
+
+    //以aar方式引入 已放入libs中
+//    implementation "com.facebook.react:react-native:0.59.1@aar" // From node_modules
+
+}
