@@ -1,0 +1,2 @@
+# RNDemo_Android
+Android原生项目引入ReactNative页面--无需搭建RN环境，直接引入aar包支持RN页面渲染
